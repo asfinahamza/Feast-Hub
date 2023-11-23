@@ -1,0 +1,71 @@
+<!-- menu.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Menu Item</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+          integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+          crossorigin="anonymous">
+    
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-dark bg-warning navbar-expand-lg">
+        <a class="navbar-brand ml-5" href="#">
+            <h1 style="font-family:fantasy;color: rgb(184, 6, 6);">Feast Hub</h1>
+        </a>
+        <div class="ml-auto">
+            <form class="form-inline mr-auto">
+                <div class="row">
+                    <button type="button" style="color: blue;"></button>
+                </div>
+            </form>
+        </div>
+    </nav>
+</header>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6">
+            
+
+            <div class="card-body">
+                <form th:action="@{'/updateMenu/' + ${menuItem.id}}" method="post" onsubmit="return confirm('Press ok to confirm')">
+                    <input value="edit" onclick="edit_input()" class="btn btn-secondary m-3" style="width: 80px;">
+                  <div class="form-group row mt-5">
+                    <label for="name" class="col-sm-3 col-form-label">Item Name</label>
+                    <div class="col-sm-9">
+                      <input type="text" id="name" class="form-control" name="name" th:value="${menuItem.name}" readonly>
+                    </div>
+                  </div>
+                  <div class="form-group row mt-5">
+                    <label for="price" class="col-sm-3 col-form-label">Price</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="price" class="form-control" name="price" th:value="${menuItem.price}" readonly>
+                    </div>
+                  </div>
+                  <input type="submit" value="Update" class="btn btn-primary m-3">
+                </form>
+
+                <script>
+                    function edit_input() {
+                        var nameField = document.getElementById('name');
+                        var priceField = document.getElementById('price');
+
+                        // Remove readonly attribute
+                        nameField.removeAttribute('readonly');
+                        priceField.removeAttribute('readonly');
+                    }
+                </script>
+
+                
+              </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

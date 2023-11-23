@@ -49,10 +49,13 @@
                   <td th:text="${menuItem.name}"></td>
                   <td th:text="${menuItem.price}"></td>
                   <td>
-                    <button type="button" class="btn btn-secondary">View</button>
-                    <button type="button" class="btn btn-secondary">Update</button>
-                    <button type="button" class="btn btn-danger">Delete</button>
-                </td>
+                    <div class="btn-group" role="group">
+                      <a th:href="@{'/menu/' + ${menuItem.id}}" class="btn">View</a>
+                      <form th:action="@{'/deleteMenu/' + ${menuItem.id}}" method="post" onsubmit="return confirm('Are you sure?')">
+                        <button type="submit" class="btn btn-danger m-1">Delete</button>
+                      </form>
+                    </div>
+                  </td>
               </tr>
           </tbody>
       </table>
