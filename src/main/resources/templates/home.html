@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <title>Add Menu Item</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+
+  
+  <body>
+    <h1>Restaurant</h1>
+    <!--<input type="button" value="Restaurant 1">
+
+    #{welcome.message(${some.attribute})}
+    <h1 th:text="#{welcome.message}">Welcome Placeholder</h1>-->
+
+    <p>Hello <span th:text="${username}"/> how are you doing today? </p>
+
+    <h2>Restaurant List</h2>
+    <table border="1">
+        <thead>
+            <tr>
+              
+              <th>ID</th>
+              <th>First Name</th>
+              
+                
+              <!--  <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>-->
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="Restaurant : ${restItems}">
+              <td th:text="${Restaurant.id}" />
+             
+              <td><input type="button" th:value="${Restaurant.firstname}" name="View"/>
+              </td>
+                <!--<td th:text="${restItem.id}"></td>
+                <td th:text="${restItem.firstname}"></td>
+                <td th:text="${restItem.lastname}"></td>-->
+            </tr>
+        </tbody>
+    </table>
+  </body>
+</html>

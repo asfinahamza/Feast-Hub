@@ -1,3 +1,4 @@
+
 package com.feasthub.feasthub.entity;
 
 import jakarta.annotation.Generated;

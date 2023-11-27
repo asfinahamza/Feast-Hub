@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <title>Add Menu Item</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+  <body>
+    <h1>Add Menu Item</h1>
+    <form action="/addMenu" method="post">
+        <label for="name">Item Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        
+
+        <label for="price">Price</label>
+        <input type="number" id="price" name="price" required><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <h2>Customer List</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="menuItem : ${menuItems}">
+                <td th:text="${menuItem.id}"></td>
+                <td th:text="${menuItem.name}"></td>
+                <td th:text="${menuItem.price}"></td>
+            </tr>
+        </tbody>
+    </table>
+  </body>
+</html>
